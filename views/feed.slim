@@ -6,10 +6,10 @@ feed xmlns='http://www.w3.org/2005/Atom'
     name= 'hogemoge'
   - items.each do |item|
     entry
-      title= 'hogemoge'
+      title= item[:title]
       updated= item[:updated]
       author
         name= 'hogemoge'
-      link href=item[:url]
+      link href=item[:url]+'&hoge=moge'
       content type="html"
         = item[:content]
