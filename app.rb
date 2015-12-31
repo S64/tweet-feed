@@ -23,7 +23,7 @@ class App < Sinatra::Base
 
     first_time = Time.now.beginning_of_day
     #times = [ first_time, first_time.yesterday, first_time.yesterday.yesterday ]
-    times = [ first_time.yesterday.yesterday ]
+    times = [ first_time.yesterday.yesterday.yesterday ]
 
     items = []
     times.each do |time|
@@ -49,8 +49,8 @@ class App < Sinatra::Base
     timezone ||= 'JST'
 
     if quntil.present? && qsince.present? then
-      quntil = Time.parse(quntil + timezone)
-      qsince = Time.parse(qsince + timezone)
+      quntil = Time.parse(quntil + ' ' + timezone)
+      qsince = Time.parse(qsince + ' ' + timezone)
     end
 
     quntil ||= Time.parse('00:00 ' + timezone, Time.now).beginning_of_day
