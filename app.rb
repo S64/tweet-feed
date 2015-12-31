@@ -23,7 +23,7 @@ class App < Sinatra::Base
 
     first_time = Time.now.beginning_of_day
     #times = [ first_time, first_time.yesterday, first_time.yesterday.yesterday ]
-    times = [ first_time.yesterday ]
+    times = [ first_time ]
 
     items = []
     times.each do |time|
@@ -32,7 +32,8 @@ class App < Sinatra::Base
       items.push({
         url: ('http://powerful-cove-6439.herokuapp.com/?access_token=%s&access_token_secret=%s&since=%s&until=%s' % [token, secret, qsince, quntil ]),
         updated: time.to_datetime.rfc3339(9),
-        content: generate_html(token, secret, nil, quntil, qsince)
+        content: generate_html(token, secret, nil, quntil, qsince),
+        title: time.yesterday.strftime('%Fのツイートまとめ')
       })
     end
 
