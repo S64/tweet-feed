@@ -23,7 +23,7 @@ class App < Sinatra::Base
 
     first_time = Time.now.beginning_of_day
     #times = [ first_time, first_time.yesterday, first_time.yesterday.yesterday ]
-    times = [ first_time, first_time.ago(7) ]
+    times = [ first_time ]
 
     items = []
     times.each do |time|
