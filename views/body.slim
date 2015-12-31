@@ -1,0 +1,11 @@
+- tweets.each do |tweet|
+  div
+    - attrs = {'lang' => tweet.user.lang}
+    - unless showconvs.include? tweet.id
+      - attrs.store 'data-conversation', 'none'
+    blockquote.twitter-tweet *attrs
+      p[lang=tweet.user.lang]= tweet.text
+      = '- %s (@%s)' % [tweet.user.name, tweet.user.screen_name]
+      a[href=('https://twitter.com/%s/status/%s' % [tweet.user.screen_name, tweet.id])]
+        = tweet.created_at
+    script[async src='//platform.twitter.com/widgets.js' charset='utf-8']

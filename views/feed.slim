@@ -1,0 +1,15 @@
+feed xmlns='http://www.w3.org/2005/Atom'
+  title= 'hogemoge'
+  updated= items[0][:updated]
+  link rel='self' href='hogemoge'
+  author
+    name= 'hogemoge'
+  - items.each do |item|
+    entry
+      title= 'hogemoge'
+      updated= item[:updated]
+      author
+        name= 'hogemoge'
+      link href=item[:url]
+      content type="html"
+        = item[:content]
