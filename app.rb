@@ -97,9 +97,9 @@ class App < Sinatra::Base
 
       reply_to = t.in_reply_to_status_id
 
-      if reply_to.present? && ( (reply_to != tprev.try(:id)) && (reply_to != tnext.try(:id)) ) then
+      #if reply_to.present? && ( (reply_to != tprev.try(:id)) && (reply_to != tnext.try(:id)) ) then
         showconvs.push t.id
-      end
+      #end
     end
 
 
