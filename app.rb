@@ -30,7 +30,7 @@ class App < Sinatra::Base
       qsince = time.yesterday.strftime('%F')
       quntil = time.strftime('%F')
       items.push({
-        url: ('http://127.0.0.1:9292/?access_token=%s&access_token_secret=%s&since=%s&until=%s' % [token, secret, qsince, quntil ]),
+        url: ('http://powerful-cove-6439.herokuapp.com/?access_token=%s&access_token_secret=%s&since=%s&until=%s' % [token, secret, qsince, quntil ]),
         updated: time.to_datetime.rfc3339(9),
         content: generate_html(token, secret, nil, quntil, qsince)
       })
