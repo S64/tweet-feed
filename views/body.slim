@@ -1,5 +1,8 @@
 div.powerful-cove-6439
+  - i = 0
   - tweets.each do |tweet|
+    - if i == 2
+      | <!-- more -->
     div.powerful-cove-6439-tweet
       - attrs = {'lang' => tweet.user.lang}
       - unless showconvs.include? tweet.id
@@ -10,3 +13,4 @@ div.powerful-cove-6439
         a[href=('https://twitter.com/%s/status/%s' % [tweet.user.screen_name, tweet.id])]
           = tweet.created_at
       script[async src='//platform.twitter.com/widgets.js' charset='utf-8']
+    - i++
