@@ -46,6 +46,10 @@ class App < Sinatra::Base
 
   def generate_html(token, secret, timezone, quntil, qsince)
 
+    if ENV['TWTR_CONSUMER_KEY'].blank? || ENV['TWTR_CONSUMER_SECRET'].blank? then
+      halt 500, 'consumer_key & secret is required'
+    end
+
     timezone ||= 'JST'
 
     if quntil.present? && qsince.present? then
